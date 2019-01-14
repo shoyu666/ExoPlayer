@@ -1,5 +1,51 @@
 # Release notes #
 
+### 2.9.3 ###
+
+* Captions: Support PNG subtitles in SMPTE-TT
+  ([#1583](https://github.com/google/ExoPlayer/issues/1583)).
+* MPEG-TS: Use random access indicators to minimize the need for
+  `FLAG_ALLOW_NON_IDR_KEYFRAMES`.
+* Downloading: Reduce time taken to remove downloads
+  ([#5136](https://github.com/google/ExoPlayer/issues/5136)).
+* MP3:
+  * Use the true bitrate for constant-bitrate MP3 seeking.
+  * Fix issue where streams would play twice on some Samsung devices
+    ([#4519](https://github.com/google/ExoPlayer/issues/4519)).
+* Fix regression where some audio formats were incorrectly marked as being
+  unplayable due to under-reporting of platform decoder capabilities
+  ([#5145](https://github.com/google/ExoPlayer/issues/5145)).
+* Fix decode-only frame skipping on Nvidia Shield TV devices.
+* Workaround for MiTV (dangal) issue when swapping output surface
+  ([#5169](https://github.com/google/ExoPlayer/issues/5169)).
+
+### 2.9.2 ###
+
+* HLS:
+  * Fix issue causing unnecessary media playlist requests when playing live
+    streams ([#5059](https://github.com/google/ExoPlayer/issues/5059)).
+  * Fix decoder re-instantiation issue for packed audio streams
+    ([#5063](https://github.com/google/ExoPlayer/issues/5063)).
+* MP4: Support Opus and FLAC in the MP4 container, and in DASH
+  ([#4883](https://github.com/google/ExoPlayer/issues/4883)).
+* DASH: Fix detecting the end of live events
+  ([#4780](https://github.com/google/ExoPlayer/issues/4780)).
+* Spherical video: Fall back to `TYPE_ROTATION_VECTOR` if
+  `TYPE_GAME_ROTATION_VECTOR` is unavailable
+  ([#5119](https://github.com/google/ExoPlayer/issues/5119)).
+* Support seeking for a wider range of MPEG-TS streams
+  ([#5097](https://github.com/google/ExoPlayer/issues/5097)).
+* Include channel count in audio capabilities check
+  ([#4690](https://github.com/google/ExoPlayer/issues/4690)).
+* Fix issue with applying the `show_buffering` attribute in `PlayerView`
+  ([#5139](https://github.com/google/ExoPlayer/issues/5139)).
+* Fix issue where null `Metadata` was output when it failed to decode
+  ([#5149](https://github.com/google/ExoPlayer/issues/5149)).
+* Fix playback of some invalid but playable MP4 streams by replacing assertions
+  with logged warnings in sample table parsing code
+  ([#5162](https://github.com/google/ExoPlayer/issues/5162)).
+* Fix UUID passed to `MediaCrypto` when using `C.CLEARKEY_UUID` before API 27.
+
 ### 2.9.1 ###
 
 * Add convenience methods `Player.next`, `Player.previous`, `Player.hasNext`
@@ -21,9 +67,9 @@
 * HLS:
   * Add constructor to `DefaultHlsExtractorFactory` for adding TS payload
     reader factory flags
+    ([#4861](https://github.com/google/ExoPlayer/issues/4861)).
   * Fix bug in segment sniffing
     ([#5039](https://github.com/google/ExoPlayer/issues/5039)).
-  ([#4861](https://github.com/google/ExoPlayer/issues/4861)).
 * SubRip: Add support for alignment tags, and remove tags from the displayed
   captions ([#4306](https://github.com/google/ExoPlayer/issues/4306)).
 * Fix issue with blind seeking to windows with non-zero offset in a
